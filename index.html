@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отзывы о продуктах</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="logo">Product Reviews</h1>
+      <p class="subtitle">Оставляйте и просматривайте отзывы о продуктах</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="add">Добавить отзыв</button>
+      <button class="tab" data-tab="view">Просмотр отзывов</button>
+    </nav>
+
+    <main class="main">
+      <!-- ===== СТРАНИЦА ДОБАВЛЕНИЯ ===== -->
+      <section id="tab-add" class="tab-panel active">
+        <form id="review-form" class="form" novalidate>
+          <div class="field">
+            <label for="product-name">Название продукта</label>
+            <input
+              type="text"
+              id="product-name"
+              placeholder="Например: iPhone 16 Pro"
+              required
+              autocomplete="off"
+            >
+            <span class="error-text" id="product-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="review-text">Ваш отзыв</label>
+            <textarea
+              id="review-text"
+              rows="5"
+              placeholder="Напишите, что вам понравилось или не понравилось..."
+              required
+            ></textarea>
+            <span class="error-text" id="review-error"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Добавить отзыв
+          </button>
+        </form>
+
+        <div id="success-message" class="success-message hidden">
+          Отзыв успешно добавлен!
+        </div>
+      </section>
+
+      <!-- ===== СТРАНИЦА ПРОСМОТРА ===== -->
+      <section id="tab-view" class="tab-panel">
+        <div id="empty-state" class="empty-state hidden">
+          <p>Пока нет ни одного отзыва.</p>
+          <p class="hint">Добавьте первый отзыв на вкладке «Добавить отзыв»</p>
+        </div>
+
+        <div id="products-list" class="products-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Данные хранятся в LocalStorage · Урок 3: Промисы и хранилище</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
